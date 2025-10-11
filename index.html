@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haassan's Social Media</title>
+    <meta name="description" content="Connect with me across all social platforms">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://example.com/">
+    <meta property="og:title" content="Haassan's Social Media">
+    <meta property="og:description" content="Follow me on all social platforms">
+    <!-- Twitter -->
+    <meta property="twitter:url" content="https://example.com/">
+    <meta property="twitter:title" content="Haassan's Social Media">
+    <meta property="twitter:description" content="Follow me on all social platforms">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        facebook: '#1877F2',
+                        instagram: '#E1306C',
+                        snapchat: '#FFFC00',
+                        whatsapp: '#25D366',
+                        tiktok: '#000000',
+                        gradient1: '#4F3BFF',
+                        gradient2: '#9747FF',
+                        gradient3: '#FF6B9F',
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                    },
+                    animation: {
+                        'gradient-x': 'gradient-x 15s ease infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        'gradient-x': {
+                            '0%, 100%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'left center'
+                            },
+                            '50%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'right center'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles */
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .dark .glassmorphism {
+            background: rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.2);
+        }
+        .ripple {
+            position: relative;
+            overflow: hidden;
+        }
+        .ripple-effect {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        .bg-animated {
+            background: linear-gradient(45deg, #4F3BFF, #9747FF, #FF6B9F);
+            background-size: 200% 200%;
+            animation: gradient-x 15s ease infinite;
+        }
+        .bg-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 font-poppins text-gray-800 dark:text-gray-200 transition-colors duration-300">
+    <!-- Background animation -->
+    <div class="bg-particles" id="particles"></div>
+    
+    <!-- Theme toggle -->
+    <button id="theme-toggle" class="fixed top-4 right-4 z-50 p-2 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300">
+        <svg id="theme-icon" class="w-6 h-6 text-gray-800 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path id="theme-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+    </button>
+
+    <!-- Loader -->
+    <div id="loader" class="fixed inset-0 z-50 flex items-center justify-center bg-white dark:bg-gray-900 transition-opacity duration-500">
+        <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-purple-500"></div>
+    </div>
+
+    <main class="container mx-auto px-4 py-12 max-w-4xl">
+        <!-- Hero Section -->
+        <section class="flex flex-col items-center justify-center text-center mb-16">
+            <div class="glassmorphism p-1 rounded-full mb-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                <img src="https://picsum.photos/150?random=3" alt="Profile Picture" class="w-32 h-32 rounded-full object-cover border-4 border-white dark:border-gray-800">
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-gradient1 to-gradient2">Hassan</h1>
+            <p class="text-xl md:text-2xl font-medium mb-4">All My Socail Acoounts</p>
+            <p class="max-w-md text-gray-600 dark:text-gray-400"></p>
+        </section>
+
+        <!-- Social Links Section -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+                        <!-- Snapchat -->
+            <a href="https://snapchat.com" target="_blank" class="ripple social-card bg-snapchat hover:bg-opacity-90">
+                <div class="flex items-center justify-center p-2">
+                    <i class="fab fa-snapchat-ghost text-gray-800 text-2xl"></i>
+                </div>
+                <div class="flex-1 text-center">
+                    <h3 class="text-gray-800 font-semibold">Snapchat</h3>
+                    <p class="text-gray-800 text-opacity-80">mstar233</p>
+                </div>
+            </a>
+
+            <!-- WhatsApp -->
+            <a href="https://wa.me/1234567890" target="_blank" class="ripple social-card bg-whatsapp hover:bg-opacity-90">
+                <div class="flex items-center justify-center p-2">
+                    <i class="fab fa-whatsapp text-white text-2xl"></i>
+                </div>
+                <div class="flex-1 text-center">
+                    <h3 class="text-white font-semibold">WhatsApp</h3>
+                    <p class="text-white text-opacity-80">+9647508767155</p>
+                </div>
+            </a>
+
+            <!-- TikTok -->
+            <a href="https://tiktok.com" target="_blank" class="ripple social-card bg-tiktok hover:bg-opacity-90 col-span-1 md:col-span-2">
+                <div class="flex items-center justify-center p-2">
+                    <i class="fab fa-tiktok text-white text-2xl"></i>
+                </div>
+                <div class="flex-1 text-center">
+                    <h3 class="text-white font-semibold">TikTok</h3>
+                    <p class="text-white text-opacity-80">lawa4540</p>
+                </div>
+            </a>
+            <!-- Facebook -->
+            <a href="https://facebook.com" target="_blank" class="ripple social-card bg-facebook hover:bg-opacity-90">
+                <div class="flex items-center justify-center p-2">
+                    <i class="fab fa-facebook-f text-white text-2xl"></i>
+                </div>
+                <div class="flex-1 text-center">
+                    <h3 class="text-white font-semibold">Facebook</h3>
+                    <p class="text-white text-opacity-80">Coming Soon</p>
+                </div>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://instagram.com" target="_blank" class="ripple social-card bg-gradient-to-r from-instagram to-pink-500 hover:bg-opacity-90">
+                <div class="flex items-center justify-center p-2">
+                    <i class="fab fa-instagram text-white text-2xl"></i>
+                </div>
+                <div class="flex-1 text-center">
+                    <h3 class="text-white font-semibold">Instagram</h3>
+                    <p class="text-white text-opacity-80">Coming Soon</p>
+                </div>
+            </a>
+
+
+        </section>
+
+        <!-- Share Section -->
+        <section class="glassmorphism rounded-xl p-6 mb-16 text-center">
+            <h2 class="text-2xl font-bold mb-4">Share My Profile</h2>
+            <div class="flex justify-center space-x-4">
+                <button id="copy-link" class="px-6 py-3 bg-gradient-to-r from-gradient1 to-gradient2 text-white rounded-full hover:opacity-90 transition-opacity duration-300">
+                    Copy Link
+                </button>
+                <button id="share-btn" class="px-6 py-3 bg-gray-200 dark:bg-gray-700 rounded-full hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300">
+                    Share
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-8 text-gray-600 dark:text-gray-400">
+        <p>Last updated © 2025Social Hub. All rights reserved.</p>
+        <p>Powered by 
+            <a href="https://engxcyber01.github.io/mySocialMedia/" class="text-blue-500 hover:text-blue-600" target="_blank">Eng.Emad</a>
+        </p>
+    </footer>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+    <script>
+        // ==============================================
+        // CONFIGURATION - Edit these values to customize
+        // ==============================================
+        const config = {
+            name: "Hassan",
+            tagline: "Digital creativity with purpose. Let's connect everywhere ",
+            bio: "Welcome to my social hub! Connect with me across all platforms.",
+            profileImage: "hassan.jpg",
+            socialLinks: {
+                facebook: "https://facebook.com",
+                instagram: "https://instagram.com",
+                snapchat: "https://snapchat.com/t/rktRktD7",
+                whatsapp: "https://wa.me/qr/INQHV7GKUXIDH1",
+                tiktok: "https://www.tiktok.com/@lawa4540?_t=ZS-90Sr7uuoh8r&_r=1"
+            },
+            whatsappNumber: "07508767155",
+            copyright: "Last updated © 2025 Social Hub. All rights reserved."
+        };
+
+        // ==============================================
+        // INITIALIZATION CODE
+        // ==============================================
+        document.addEventListener('DOMContentLoaded', () => {
+            // Hide loader after 1.5 seconds
+            setTimeout(() => {
+                document.getElementById('loader').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('loader').style.display = 'none';
+                }, 500);
+            }, 1500);
+
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = document.getElementById('theme-icon');
+            const themeIconPath = document.getElementById('theme-icon-path');
+            
+            if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+                themeIconPath.setAttribute('d', 'M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+
+            themeToggle.addEventListener('click', () => {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                    themeIconPath.setAttribute('d', 'M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                    themeIconPath.setAttribute('d', 'M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z');
+                }
+            });
+
+            // Ripple effect for buttons
+            const rippleButtons = document.querySelectorAll('.ripple');
+            rippleButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const ripple = document.createElement('span');
+                    ripple.classList.add('ripple-effect');
+                    ripple.style.left = `${x}px`;
+                    ripple.style.top = `${y}px`;
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+
+            // Copy link functionality
+            document.getElementById('copy-link').addEventListener('click', () => {
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    alert('Link copied to clipboard!');
+                });
+            });
+
+            // Share functionality
+            document.getElementById('share-btn').addEventListener('click', () => {
+                if (navigator.share) {
+                    navigator.share({
+                        title: `${config.name}'s Social Hub`,
+                        text: `Connect with ${config.name} on social media`,
+                        url: window.location.href
+                    }).catch(err => {
+                        console.log('Error sharing:', err);
+                    });
+                } else {
+                    alert('Web Share API not supported in your browser. Please copy the link manually.');
+                }
+            });
+
+            // Create particles
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 20;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random size between 5 and 15px
+                const size = Math.random() * 10 + 5;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Random opacity
+                particle.style.opacity = Math.random() * 0.5 + 0.1;
+                
+                // Random animation duration and delay
+                const duration = Math.random() * 20 + 10;
+                const delay = Math.random() * 5;
+                particle.style.animation = `move ${duration}s linear ${delay}s infinite`;
+                
+                // Random movement direction
+                const xDirection = Math.random() > 0.5 ? 1 : -1;
+                const yDirection = Math.random() > 0.5 ? 1 : -1;
+                particle.style.setProperty('--x-direction', xDirection);
+                particle.style.setProperty('--y-direction', yDirection);
+                
+                particlesContainer.appendChild(particle);
+            }
+
+            // Add keyframe animation for particles
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes move {
+                    0% {
+                        transform: translate(0, 0);
+                    }
+                    25% {
+                        transform: translate(calc(var(--x-direction) * 50px), calc(var(--y-direction) * 30px));
+                    }
+                    50% {
+                        transform: translate(calc(var(--x-direction) * 100px), calc(var(--y-direction) * 60px));
+                    }
+                    75% {
+                        transform: translate(calc(var(--x-direction) * 50px), calc(var(--y-direction) * 30px));
+                    }
+                    100% {
+                        transform: translate(0, 0);
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+
+            // Apply config values
+            document.querySelector('h1').textContent = config.name;
+            document.querySelector('p:nth-of-type(1)').textContent = config.tagline;
+            document.querySelector('p:nth-of-type(2)').textContent = config.bio;
+            document.querySelector('img[alt="Profile Picture"]').src = config.profileImage;
+            document.querySelector('footer p:first-child').textContent = config.copyright;
+            
+            // Update social links
+            document.querySelector('a[href="https://facebook.com"]').href = config.socialLinks.facebook;
+            document.querySelector('a[href="https://instagram.com"]').href = config.socialLinks.instagram;
+            document.querySelector('a[href="https://snapchat.com"]').href = config.socialLinks.snapchat;
+            document.querySelector('a[href="https://wa.me/1234567890"]').href = `https://wa.me/${config.whatsappNumber}`;
+            document.querySelector('a[href="https://tiktok.com"]').href = config.socialLinks.tiktok;
+        });
+    </script>
+</body>
+</html>
